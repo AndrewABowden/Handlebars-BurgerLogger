@@ -1,9 +1,9 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
 
-if(process.env.JAWSDB_URL){
-    var connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
+// if(process.env.JAWSDB_URL){
+//     var connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
 
     var connection = mysql.createConnection({
         host: "localhost",
@@ -12,7 +12,7 @@ if(process.env.JAWSDB_URL){
         password: "",
         database: "burgers_db"
     });
-}
+// }
 
 
 // Make connection.
@@ -21,7 +21,7 @@ connection.connect(function(err) {
     console.error("error connecting: " + err.stack);
     return;
   }
-  connection.query("Drop TABLE if exists tBurger; create table tBurger;")
+//   connection.query("Drop TABLE if exists tBurger; create table tBurger;")
   console.log("connected as id " + connection.threadId);
 });
 
