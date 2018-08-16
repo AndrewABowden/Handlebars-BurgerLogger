@@ -1,61 +1,45 @@
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <center>
 
+  <div class="container">
 
+    <div class="col-md-4">
+      <img src="https://cdn0.iconfinder.com/data/icons/food-2-11/128/food-13-512.png" alt="" style="max-width: 300px; height: 300px; float:right"
+      />
+      <h2>Add a Burger</h2>
+      <form class="create-form">
 
+        <div class="form-group">
+          <label for="burger">Burger Name:</label>
+          <input type="text" id="burger" name="name">
+        </div>
 
-<div class="container">
+        <div class="form-group">
+          <label for="devoured">Devoured?</label>
+          <br>
+          <input type="radio" name="devoured" value="1" checked> Devoured!
+          <br>
+          <input type="radio" name="devoured" value="0"> Hungry
+        </div>
 
-  <div class="col-md-4">
-    <img src="https://cdn0.iconfinder.com/data/icons/food-2-11/128/food-13-512.png" alt="" style="max-width: 300px; height: 300px; float:right" />
-<h2>Add a Burger</h2>
-<form class="create-form">
+        <button type="submit">Add Burger</button>
+      </form>
 
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="name">
+    </div>
+    <div class="col-md-6" style="float: left">
+      <h2>Burgers that are devoured!</h2>
+
+      <ul>
+        {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devoured=false}} {{/if}} {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6" style="float: left">
+      <div id="notDevoured">
+        <h2>Burgers that are not devoured!</h2>
+
+        <ul>
+          {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Hungry
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
-
-</div>
-<div class="col-md-6" style="float: left">
-<h2>Burgers that are devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-</div>
-<div class="col-md-6" style="float: left">
-<div id="notDevoured">
-<h2>Burgers that are not devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-</div>
+</center>
